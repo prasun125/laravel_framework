@@ -30,7 +30,8 @@
         "symfony/cache": "^5.0",
         "symfony/filesystem": "^5.0",
         "symfony/psr-http-message-bridge": "^2.0",
-        "wildbit/swiftmailer-postmark": "^3.1"
+        "wildbit/swiftmailer-postmark": "^3.1",
+        "writingink/wink": "^0.2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",
