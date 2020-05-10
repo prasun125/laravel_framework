@@ -1,0 +1,12 @@
+.font-primary-color {
+	color: rgba(255, 255, 255, 1);
+}
+.icon-primary-color {
+	color: rgba(0, 105, 178, 1);
+}
+.background-white {
+    background-color: rgba(255, 255, 255, 1);
+}
+.background-primary-color {
+	background-color: rgba(0, 105, 178, 1);
+}
