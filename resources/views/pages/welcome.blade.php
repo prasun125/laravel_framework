@@ -2,6 +2,15 @@
 @section('title')
     Welcome to
 @endsection
+@section('head-link')
+    <!--Vendors-->
+    <link href="{{ asset('assets/vendor/owlcarousel/css/owl.carousel.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/vendor/owlcarousel/css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/vendor/owlcarousel/css/owl.theme.default.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/vendor/owlcarousel/css/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/vendor/owlcarousel/css/owl.theme.green.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/vendor/owlcarousel/css/owl.theme.green.min.css') }}" rel="stylesheet" type="text/css"/>
+@endsection
 @section('internal-css')
     <style>
         section.banner-container > div:nth-child(2) {
@@ -38,8 +47,19 @@
             margin-left: 8px;
         }
 
-        .event-container > #check_in, .event-container > #check_in > i, .event-container > #check_in > label, .event-container > #check_out, .event-container > #check_out > i, .event-container > #check_out > label, .room-guest-container > i, .room-guest-container > label, button {
+        .location-container > input[type=text] {
+            border: none;
+            padding: 0;
+            font-size: inherit;
+            width: 100%;
+        }
+
+        .location-container > i.search, .event-container > #check_in, .event-container > #check_in > i, .event-container > #check_in > label, .event-container > #check_out, .event-container > #check_out > i, .event-container > #check_out > label, .room-guest-container > i, .room-guest-container > label, button {
             cursor: pointer;
+        }
+
+        .event-container label.checkin, .event-container label.checkout, .room-guest-container label.room-guest {
+            margin-bottom: 0;
         }
 
         .checkin:hover, .checkout:hover, .room-guest:hover {
@@ -109,7 +129,7 @@
     <section class="banner-container min-width-100 width-100 max-width-100 d-flex j-c-center a-i-center pos-relative">
         @include('partials.slider')
         <div class="max-width-100 d-flex flex-dir-column flex-wrap j-c-space-between a-i-center p-0-8">
-            <div class="font-primary-color review">
+            <div class="font-white review">
                 Latest reviews. Lowest prices
             </div>
             <form class="d-flex flex-dir-row flex-wrap a-i-center background-white">
@@ -118,7 +138,7 @@
                         location_on
                     </i>
                     <input type="text" placeholder="City or hotel name"/>
-                    <i class="material-icons icon-primary-color">
+                    <i class="material-icons icon-primary-color search">
                         search
                     </i>
                 </div>
@@ -155,8 +175,7 @@
                         1 room, 2 guests
                     </label>
                 </div>
-                <button
-                    class="min-height-52 height-52 max-height-52 capitalize background-primary-color font-primary-color p-0-16 find-hotels">
+                <button class="min-height-52 height-52 max-height-52 capitalize background-primary-color font-white p-0-16 find-hotels">
                     find hotels
                 </button>
             </form>
@@ -175,7 +194,39 @@
     {{--<script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}" type="text/javascript"></script>--}}
     {{--<script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}" type="text/javascript"></script>--}}
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(window, document).ready(function () {
+            if (window.location.pathname === '/') {
+                $('header').addClass('home');
+                $('header.home > nav.menu-link-container > a.menu-link').removeClass('font-black').addClass('font-white');
+                $('header.home > nav.menu-link-container > i.more_vert').removeClass('font-black').addClass('font-white');
+            }
+            $(document).scroll(function () {
+                if ($(document).scrollTop() > 64) {
+                    $('header').removeClass('home');
+                    $('header> nav.menu-link-container > a.menu-link').addClass('scrolled');
+                    $('header > nav.menu-link-container > i.more_vert').css('color', 'rgba(0, 0, 0, 1)');
+                } else {
+                    $('header').addClass('home');
+                    $('header > nav.menu-link-container > a.menu-link').removeClass('scrolled');
+                    $('header > nav.menu-link-container > i.more_vert').css('color', 'rgba(255, 255, 255, 1)');
+                }
+            });
+            $('.slider-active').owlCarousel({
+                loop: true,
+                navText: ['<i class="material-icons">chevron_left</i>', '<i class="material-icons">chevron_right</i>'],
+                // animateOut: slideInLeft,
+                // animateIn: slideInRight,
+                nav: true,
+                autoplay: true,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    }
+                },
+                slideSpeed : 5000,
+                autoplaySpeed:2000,
+            });
             /*
 			|--------------------------------------------------------------------------
 			| Smooth scrolling

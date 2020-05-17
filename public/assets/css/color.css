@@ -1,5 +1,8 @@
-.font-primary-color {
-	color: rgba(255, 255, 255, 1);
+.font-white {
+    color: rgba(255, 255, 255, 1);
+}
+.font-black {
+	color: rgba(0, 0, 0, 1);
 }
 .icon-primary-color {
 	color: rgba(0, 105, 178, 1);
