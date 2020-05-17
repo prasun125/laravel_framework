@@ -76,13 +76,50 @@
 
         .down-arrow {
             position: absolute;
-            bottom: 8px;
+            bottom: 6%;
             z-index: 1;
         }
 
         .down-arrow i {
             font-size: 48px;
             color: rgba(0, 0, 0, 1);
+        }
+
+        /* Animated Mouse Scroll Icon */
+        .scroll-downs {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+
+            width :34px;
+            height: 55px;
+        }
+        .mousey {
+            width: 3px;
+            padding: 10px 15px;
+            height: 32px;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            opacity: 0.75;
+            box-sizing: content-box;
+        }
+        .scroller {
+            width: 3px;
+            height: 10px;
+            border-radius: 25%;
+            background-color: #fff;
+            animation-name: scroll;
+            animation-duration: 2.2s;
+            animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+            animation-iteration-count: infinite;
+        }
+        @keyframes scroll {
+            0% { opacity: 0; }
+            10% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(15px); opacity: 0;}
         }
 
         @media only screen and (max-width: 768px) {
@@ -181,9 +218,14 @@
             </form>
         </div>
         <a href="#about" class="down-arrow cur-point">
-            <i class="material-icons">
+            {{--<i class="material-icons">
                 keyboard_arrow_down
-            </i>
+            </i>--}}
+            <div class="scroll-downs">
+                <div class="mousey">
+                    <div class="scroller"></div>
+                </div>
+            </div>
         </a>
     </section>
     <div id="about" style="height: 800px; width: 100%; background-color: #2a88bd;">
