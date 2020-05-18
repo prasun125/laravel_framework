@@ -1,36 +1,28 @@
 @extends('layouts.master')
-
+@section('title')
+    Sign up |
+@endsection
 @section('content')
-<div class="container">
+<div class="container p-t-6rem">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Sign up') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
-                        {{--<div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>--}}
 
                         <div class="form-group">
                             <label for="username">{{ __('Username') }}</label>
 
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrependUsername">@</span>
+                                    <span class="input-group-text" id="inputGroupPrependUsername">
+                                        <span class="material-icons">
+                                            alternate_email
+                                        </span>
+                                    </span>
                                 </div>
 
                                 <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username" id="username" name="username" value="{{ old('username') }}" autocomplete="username" required autofocus aria-describedby="inputGroupPrependUsername">
@@ -49,9 +41,13 @@
                                     <label for="firstname">{{ __('First name') }}</label>
 
                                     <div class="input-group">
-                                        {{--<div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrependFirstname">@</span>
-                                        </div>--}}
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrependFirstname">
+                                                <span class="material-icons">
+                                                    person
+                                                </span>
+                                            </span>
+                                        </div>
 
                                         <input type="text" class="form-control @error('firstname') is-invalid @enderror" placeholder="First name" id="firstname" name="firstname" value="{{ old('firstname') }}" autocomplete="firstname" required autofocus aria-describedby="inputGroupPrependFirstname">
                                     </div>
@@ -67,9 +63,13 @@
                                     <label for="lastname">{{ __('Last name') }}</label>
 
                                     <div class="input-group">
-                                        {{--<div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrependLastname">@</span>
-                                        </div>--}}
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrependLastname">
+                                                <span class="material-icons">
+                                                    person
+                                                </span>
+                                            </span>
+                                        </div>
 
                                         <input type="text" class="form-control @error('lastname') is-invalid @enderror" placeholder="Last name" id="lastname" name="lastname" value="{{ old('lastname') }}" autocomplete="lastname" required autofocus aria-describedby="inputGroupPrependLastname">
                                     </div>
@@ -82,20 +82,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        {{--<div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>--}}
 
                         <div class="form-group">
                             <label for="email">{{ __('Email') }}</label>
@@ -120,20 +106,6 @@
                         </div>
 
                         {{--<div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
@@ -147,9 +119,9 @@
                             <div class="input-group">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="new-password" required autofocus aria-describedby="passwordHelp">
 
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrependEmail">
-                                        <span class="material-icons">visibility_off</span>
+                                <div class="input-group-prepend cur-point" onclick="togglePassword()">
+                                    <span class="input-group-text" id="inputGroupPrependPassword">
+                                        <span class="material-icons" id="visibility">visibility_off</span>
                                     </span>
                                 </div>
                             </div>
@@ -165,14 +137,6 @@
                             @enderror
                         </div>
 
-                        {{--<div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>--}}
-
                         <div class="form-row justify-content-center">
                             <button type="submit" class="btn btn-outline-primary">
                                 {{ __('Register') }}
@@ -184,4 +148,21 @@
         </div>
     </div>
 </div>
+@endsection
+@section('internal-js')
+    <script type='text/javascript'>
+        function togglePassword() {
+            let passwordInputObject = document.getElementById('password');
+            if (passwordInputObject.value !== '') {
+                let visibilityObject = document.getElementById('visibility');
+                if (passwordInputObject.type === 'password') {
+                    passwordInputObject.type = 'text';
+                    visibilityObject.innerText = 'visibility';
+                } else {
+                    passwordInputObject.type = 'password';
+                    visibilityObject.innerText = 'visibility_off';
+                }
+            }
+        }
+    </script>
 @endsection

@@ -21,7 +21,7 @@ body {
 *::selection {
     color: rgba(0, 105, 178, 1);
 }
-a {
+a, a:hover, .btn-link:hover {
 	text-decoration: none;
 }
 .capitalize {
@@ -137,6 +137,9 @@ button {
 }
 .p-r-16 {
     padding-right: 16px;
+}
+.p-t-6rem {
+    padding-top: 6rem;
 }
 
 /*
@@ -279,4 +282,18 @@ button {
     .slider-active .owl-nav {
         display: none;
     }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Overright app.css
+|--------------------------------------------------------------------------
+*/
+.input-group-text, .form-control, .btn {
+    border-radius: 0;
+}
+.form-control {
+    min-height: 38px;
+    height: 38px;
+    max-height: 38px;
 }
