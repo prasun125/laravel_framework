@@ -117,7 +117,7 @@
                             <label for="password">{{ __('Password') }}</label>
 
                             <div class="input-group">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="new-password" required autofocus aria-describedby="passwordHelp">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="new-password" required autofocus aria-describedby="passwordHelp" minlength="8">
 
                                 <div class="input-group-prepend cur-point" onclick="togglePassword()">
                                     <span class="input-group-text" id="inputGroupPrependPassword">

@@ -26,7 +26,7 @@
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="name@example.com" id="email" name="email" value="{{ old('email') }}" autocomplete="email" required autofocus aria-describedby="emailHelp">
                             </div>
 
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            {{--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                             <label for="password">{{ __('Password') }}</label>
 
                             <div class="input-group">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="passwordHelp">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="passwordHelp" minlength="8">
 
                                 <div class="input-group-prepend cur-point" onclick="togglePassword()">
                                     <span class="input-group-text" id="inputGroupPrependEmail">
@@ -48,9 +48,9 @@
                                 </div>
                             </div>
 
-                            <small id="passwordHelp" class="form-text text-muted">
+                            {{--<small id="passwordHelp" class="form-text text-muted">
                                 Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                            </small>
+                            </small>--}}
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
