@@ -60,10 +60,10 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <div class="form-check cur-point">
+                                <input class="form-check-input cur-point" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                <label class="form-check-label" for="remember">
+                                <label class="form-check-label cur-point" for="remember">
                                     {{ __('Remember Me') }}
                                 </label>
                             </div>
