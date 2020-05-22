@@ -74,38 +74,28 @@
             background-color: rgba(0, 0, 0, 0.1);
         }
 
-        .down-arrow {
+        /* Animated Mouse Scroll Icon */
+        .scroll-down {
             position: absolute;
-            bottom: 6%;
+            right: 0;
+            bottom: 4%;
+            left: 0;
+            margin: auto;
+            width :34px;
+            height: 55px;
             z-index: 1;
         }
 
-        .down-arrow i {
-            font-size: 48px;
-            color: rgba(0, 0, 0, 1);
-        }
-
-        /* Animated Mouse Scroll Icon */
-        .scroll-downs {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-
-            width :34px;
-            height: 55px;
-        }
-        .mousey {
+        .mouse {
             width: 3px;
-            padding: 10px 15px;
+            padding: 8px 14px;
             height: 32px;
             border: 2px solid #fff;
             border-radius: 25px;
             opacity: 0.75;
             box-sizing: content-box;
         }
+
         .scroller {
             width: 3px;
             height: 10px;
@@ -116,10 +106,21 @@
             animation-timing-function: cubic-bezier(.15,.41,.69,.94);
             animation-iteration-count: infinite;
         }
+
         @keyframes scroll {
             0% { opacity: 0; }
             10% { transform: translateY(0); opacity: 1; }
             100% { transform: translateY(15px); opacity: 0;}
+        }
+
+        .scroll-down > .scroll-text {
+            font-size: 14px;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            section.banner-container > div:nth-child(2) {
+                min-height: calc(100vh - 90%);
+            }
         }
 
         @media only screen and (max-width: 768px) {
@@ -128,7 +129,7 @@
             }
 
             .review {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .location-container, .event-container, .room-guest-container, .find-hotels {
@@ -217,16 +218,22 @@
                 </button>
             </form>
         </div>
-        <a href="#about" class="down-arrow cur-point">
-            {{--<i class="material-icons">
+        {{--<a href="#about" class="down-arrow cur-point">
+            --}}{{--<i class="material-icons">
                 keyboard_arrow_down
-            </i>--}}
+            </i>--}}{{--
             <div class="scroll-downs">
                 <div class="mousey">
                     <div class="scroller"></div>
                 </div>
             </div>
-        </a>
+        </a>--}}
+        <div class="scroll-down cur-point">
+            <div class="mouse">
+                <div class="scroller"></div>
+            </div>
+            <div class="scroll-text font-white">Scroll</div>
+        </div>
     </section>
     <div id="about" style="height: 800px; width: 100%; background-color: #2a88bd;">
         about
