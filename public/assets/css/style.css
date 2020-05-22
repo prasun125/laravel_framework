@@ -14,9 +14,10 @@ body {
     box-sizing: border-box;
     outline: none;
 }
-*:focus, button:focus, .form-control:focus {
+*:focus, button:focus, .form-control:focus, .btn:focus, .btn.focus, .btn-outline-primary:focus, .btn-outline-primary.focus {
     box-shadow: none;
     outline: none;
+    text-decoration: none;
 }
 *::selection {
     color: rgba(0, 105, 178, 1);
