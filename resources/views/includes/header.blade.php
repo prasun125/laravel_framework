@@ -9,7 +9,7 @@
     <img src="{{ asset('assets/photos/laravel-vue.png') }}" alt="{{ config('app.name', 'Laravel + Vue') }} Logo" title="{{ config('app.name', 'Laravel + Vue') }} Logo" class="logo min-width-auto width-auto max-width-100">
     <nav class="menu-link-container uppercase cur-point">
         @if (Route::has('welcome'))
-            <a href="{{ route('welcome') }}" class="menu-link p-0-16 pos-relative font-black active">
+            <a href="{{ route('welcome') }}" class="menu-link p-0-16 pos-relative font-black @if (Route::is('welcome')) active @endif">
                 {{ __('home') }}
             </a>
         @endif
@@ -21,12 +21,12 @@
         </a>
         @guest
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="menu-link p-0-16 pos-relative font-black">
+                <a href="{{ route('register') }}" class="menu-link p-0-16 pos-relative font-black @if (Route::is('register')) active @endif">
                     {{ __('sign up') }}
                 </a>
             @endif
             @if (Route::has('login'))
-                <a href="{{ route('login') }}" class="menu-link p-0-16 pos-relative font-black">
+                <a href="{{ route('login') }}" class="menu-link p-0-16 pos-relative font-black @if (Route::is('login')) active @endif">
                     {{ __('sign in') }}
                 </a>
             @endif
