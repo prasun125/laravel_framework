@@ -242,6 +242,8 @@
 @section('internal-js')
     {{--<script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}" type="text/javascript"></script>--}}
     {{--<script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}" type="text/javascript"></script>--}}
+    <script src="{{ asset('assets/vendor/owlcarousel/js/owl.carousel.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendor/owlcarousel/js/owl.carousel.min.js') }}" defer type="text/javascript"></script>
     <script type="text/javascript">
         $(window, document).ready(function () {
             if (window.location.pathname === '/') {

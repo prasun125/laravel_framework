@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.welcome');
+    return view('pages.welcome-default');
 })->name('welcome');
 
 Auth::routes();

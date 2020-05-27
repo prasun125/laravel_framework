@@ -13,8 +13,6 @@
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}" type="text/javascript" rel="script"></script>
-    <script src="{{ asset('assets/vendor/owlcarousel/js/owl.carousel.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/vendor/owlcarousel/js/owl.carousel.min.js') }}" defer type="text/javascript"></script>
     <script src="{{ asset('assets/js/script.js') }}" type="text/javascript" rel="script"></script>
     @yield('internal-js')
 </body>
