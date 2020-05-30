@@ -119,9 +119,9 @@
                             <div class="input-group">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="new-password" required autofocus aria-describedby="passwordHelp" minlength="8">
 
-                                <div class="input-group-prepend cur-point" onclick="togglePassword()">
+                                <div class="input-group-prepend cur-point" onclick="togglePassword(document.getElementById('password-visibility'), document.getElementById('password'))">
                                     <span class="input-group-text" id="inputGroupPrependPassword">
-                                        <span class="material-icons" id="visibility">visibility_off</span>
+                                        <span class="material-icons" id="password-visibility">visibility_off</span>
                                     </span>
                                 </div>
                             </div>
@@ -151,16 +151,14 @@
 @endsection
 @section('internal-js')
     <script type='text/javascript'>
-        function togglePassword() {
-            let passwordInputObject = document.getElementById('password');
-            if (passwordInputObject.value !== '') {
-                let visibilityObject = document.getElementById('visibility');
-                if (passwordInputObject.type === 'password') {
-                    passwordInputObject.type = 'text';
-                    visibilityObject.innerText = 'visibility';
+        function togglePassword(thisObj, inputObj) {
+            if (inputObj.value !== '') {
+                if (inputObj.type === 'password') {
+                    inputObj.type = 'text';
+                    thisObj.innerText = 'visibility';
                 } else {
-                    passwordInputObject.type = 'password';
-                    visibilityObject.innerText = 'visibility_off';
+                    inputObj.type = 'password';
+                    thisObj.innerText = 'visibility_off';
                 }
             }
         }

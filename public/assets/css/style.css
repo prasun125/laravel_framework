@@ -290,7 +290,7 @@ button {
 | Overright app.css
 |--------------------------------------------------------------------------
 */
-.input-group-text, .form-control, .btn, .card {
+.input-group-text, .form-control, .btn, .card, .alert {
     border-radius: 0;
 }
 .form-control {

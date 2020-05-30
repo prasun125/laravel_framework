@@ -1,44 +1,52 @@
-@extends('layouts.app')
-
+@extends('layouts.master')
+@section('title')
+    Confirm Password |
+@endsection
 @section('content')
-<div class="container">
+<div class="container p-t-6rem">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>
 
                 <div class="card-body">
-                    {{ __('Please confirm your password before continuing.') }}
+                    <div class="alert alert-info" role="alert">
+                        {{ __('Please confirm your password before continuing.') }}
+                    </div>
 
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="form-group">
+                            <label for="password">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="input-group">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="passwordHelp" minlength="8">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                <div class="input-group-prepend cur-point" onclick="togglePassword(document.getElementById('password-visibility'), document.getElementById('password'))">
+                                    <span class="input-group-text" id="inputGroupPrependEmail">
+                                        <span class="material-icons" id="password-visibility">visibility_off</span>
                                     </span>
-                                @enderror
+                                </div>
                             </div>
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Confirm Password') }}
-                                </button>
+                        <div class="form-row justify-content-center">
+                            <button type="submit" class="btn btn-outline-primary">
+                                {{ __('Confirm Password') }}
+                            </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
                         </div>
                     </form>
                 </div>
@@ -46,4 +54,19 @@
         </div>
     </div>
 </div>
+@endsection
+@section('internal-js')
+    <script type='text/javascript'>
+        function togglePassword(thisObj, inputObj) {
+            if (inputObj.value !== '') {
+                if (inputObj.type === 'password') {
+                    inputObj.type = 'text';
+                    thisObj.innerText = 'visibility';
+                } else {
+                    inputObj.type = 'password';
+                    thisObj.innerText = 'visibility_off';
+                }
+            }
+        }
+    </script>
 @endsection

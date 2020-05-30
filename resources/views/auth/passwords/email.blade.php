@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Reset password |
+    Reset Password |
 @endsection
 @section('content')
 <div class="container p-t-6rem">

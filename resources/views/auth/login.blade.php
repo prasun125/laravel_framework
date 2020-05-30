@@ -23,10 +23,8 @@
                                     </span>
                                 </div>
 
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="name@example.com" id="email" name="email" value="{{ old('email') }}" autocomplete="email" required autofocus aria-describedby="emailHelp">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="name@example.com" id="email" name="email" value="{{ old('email') }}" autocomplete="email" required autofocus aria-describedby="inputGroupPrependEmail">
                             </div>
-
-                            {{--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -41,16 +39,12 @@
                             <div class="input-group">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="passwordHelp" minlength="8">
 
-                                <div class="input-group-prepend cur-point" onclick="togglePassword()">
+                                <div class="input-group-prepend cur-point" onclick="togglePassword(document.getElementById('password-visibility'), document.getElementById('password'))">
                                     <span class="input-group-text" id="inputGroupPrependEmail">
-                                        <span class="material-icons" id="visibility">visibility_off</span>
+                                        <span class="material-icons" id="password-visibility">visibility_off</span>
                                     </span>
                                 </div>
                             </div>
-
-                            {{--<small id="passwordHelp" class="form-text text-muted">
-                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                            </small>--}}
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -89,16 +83,14 @@
 @endsection
 @section('internal-js')
     <script type='text/javascript'>
-        function togglePassword() {
-            let passwordInputObject = document.getElementById('password');
-            if (passwordInputObject.value !== '') {
-                let visibilityObject = document.getElementById('visibility');
-                if (passwordInputObject.type === 'password') {
-                    passwordInputObject.type = 'text';
-                    visibilityObject.innerText = 'visibility';
+        function togglePassword(thisObj, inputObj) {
+            if (inputObj.value !== '') {
+                if (inputObj.type === 'password') {
+                    inputObj.type = 'text';
+                    thisObj.innerText = 'visibility';
                 } else {
-                    passwordInputObject.type = 'password';
-                    visibilityObject.innerText = 'visibility_off';
+                    inputObj.type = 'password';
+                    thisObj.innerText = 'visibility_off';
                 }
             }
         }
