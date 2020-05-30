@@ -10,6 +10,13 @@
     "repositories": [
         {
             "type": "path",
+            "url": "packages/bitfumes/contact",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
             "url": "packages/laraveldaily/timezones",
             "options": {
                 "symlink": true
@@ -21,6 +28,7 @@
         "alcaeus/mongo-php-adapter": "^1.1",
         "aws/aws-php-sns-message-validator": "^1.6",
         "aws/aws-sdk-php": "^3.137",
+        "bitfumes/contact": "dev-master",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
