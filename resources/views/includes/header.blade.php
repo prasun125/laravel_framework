@@ -40,6 +40,7 @@
         <i class="material-icons font-black p-8 more_vert">
             more_vert
         </i>
+        <div class="account cur-point">P</div>
     </nav>
 </header>
 <nav class="mobile-menu-link-container uppercase cur-point pos-fixed p-0-16">

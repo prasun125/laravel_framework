@@ -78,6 +78,17 @@ header > nav.menu-link-container > a.menu-link.scrolled::before, header > nav.me
 header > nav.menu-link-container > i.more_vert {
     border-radius: 50%;
 }
+header > nav.menu-link-container > .account {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 105, 178, 1);
+    color: rgba(255, 255, 255, 1);
+}
 @media only screen and (max-width: 768px) {
     header {
         padding: 0 8px;
