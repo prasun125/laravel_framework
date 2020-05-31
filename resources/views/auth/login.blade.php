@@ -37,7 +37,15 @@
                             <label for="password">{{ __('Password') }}</label>
 
                             <div class="input-group">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="passwordHelp" minlength="8">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrependPassword">
+                                        <span class="material-icons">
+                                            vpn_key
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="inputGroupPrependPassword" minlength="8">
 
                                 <div class="input-group-prepend cur-point" onclick="togglePassword(document.getElementById('password-visibility'), document.getElementById('password'))">
                                     <span class="input-group-text" id="inputGroupPrependEmail">
