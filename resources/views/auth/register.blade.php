@@ -38,21 +38,21 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col">
-                                    <label for="firstname">{{ __('First name') }}</label>
+                                    <label for="forename">{{ __('Forename') }}</label>
 
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrependFirstname">
+                                            <span class="input-group-text" id="inputGroupPrependForename">
                                                 <span class="material-icons">
                                                     person
                                                 </span>
                                             </span>
                                         </div>
 
-                                        <input type="text" class="form-control @error('firstname') is-invalid @enderror" placeholder="First name" id="firstname" name="firstname" value="{{ old('firstname') }}" autocomplete="firstname" required autofocus aria-describedby="inputGroupPrependFirstname">
+                                        <input type="text" class="form-control @error('forename') is-invalid @enderror" placeholder="Forename" id="forename" name="forename" value="{{ old('forename') }}" autocomplete="forename" required autofocus aria-describedby="inputGroupPrependForename">
                                     </div>
 
-                                    @error('firstname')
+                                    @error('forename')
                                         <div class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </div>
@@ -60,21 +60,21 @@
                                 </div>
 
                                 <div class="col">
-                                    <label for="lastname">{{ __('Last name') }}</label>
+                                    <label for="surname">{{ __('Surname') }}</label>
 
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrependLastname">
+                                            <span class="input-group-text" id="inputGroupPrependSurname">
                                                 <span class="material-icons">
                                                     person
                                                 </span>
                                             </span>
                                         </div>
 
-                                        <input type="text" class="form-control @error('lastname') is-invalid @enderror" placeholder="Last name" id="lastname" name="lastname" value="{{ old('lastname') }}" autocomplete="lastname" required autofocus aria-describedby="inputGroupPrependLastname">
+                                        <input type="text" class="form-control @error('surname') is-invalid @enderror" placeholder="Surname" id="surname" name="surname" value="{{ old('surname') }}" autocomplete="surname" required autofocus aria-describedby="inputGroupPrependSurname">
                                     </div>
 
-                                    @error('lastname')
+                                    @error('surname')
                                         <div class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </div>
