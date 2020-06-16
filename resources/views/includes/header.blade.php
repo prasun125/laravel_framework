@@ -22,12 +22,12 @@
         @guest
             @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="menu-link p-0-16 pos-relative font-black @if (Route::is('register')) active @endif">
-                    {{ __('sign up') }}
+                    {{ __('Register') }}
                 </a>
             @endif
             @if (Route::has('login'))
                 <a href="{{ route('login') }}" class="menu-link p-0-16 pos-relative font-black @if (Route::is('login')) active @endif">
-                    {{ __('sign in') }}
+                    {{ __('Login') }}
                 </a>
             @endif
             {{--<a href="{{ route('account.register') }}" class="menu-link p-0-16 pos-relative font-black">
@@ -77,7 +77,7 @@
                     how_to_reg
                 </i>
                 <a href="{{ route('register') }}" class="m-l-16">
-                    {{ __('sign up') }}
+                    {{ __('Register') }}
                 </a>
             </div>
         @endif
@@ -87,7 +87,7 @@
                     vpn_key
                 </i>
                 <a href="{{ route('login') }}" class="m-l-16">
-                    {{ __('sign in') }}
+                    {{ __('Login') }}
                 </a>
             </div>
         @endif
