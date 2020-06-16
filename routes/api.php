@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::namespace('Api\Company')->group(function () {
+    Route::resource('companies', 'CompanyController', ['except' => ['create', 'edit']]);
+});
+
+/*Route::name('api')->group(function () {
+    Route::namespace('Api/Company')->group(function () {
+        Route::resource('company', 'CompanyController', ['except' => ['create', 'edit']]);
+    });
+});*/

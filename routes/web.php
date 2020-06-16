@@ -25,3 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', function () {
     return view('pages.test');
 });
+
+Route::namespace('Company')->group(function () {
+    Route::get('companies', 'CompanyController@index')->name('company.index');
+});
