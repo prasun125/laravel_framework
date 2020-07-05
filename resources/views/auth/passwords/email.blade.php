@@ -29,7 +29,7 @@
                                     </span>
                                 </div>
 
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="name@example.com" id="email" name="email" value="{{ old('email') }}" autocomplete="email" required autofocus>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="name@example.com" id="email" name="email" value="{{ old('email') }}" minlength="1" maxlength="255" autocomplete="email" autofocus required>
                             </div>
 
                             @error('email')

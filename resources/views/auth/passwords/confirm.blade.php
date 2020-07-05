@@ -22,14 +22,14 @@
 
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrependPassword">
+                                    <span class="input-group-text">
                                         <span class="material-icons">
                                             vpn_key
                                         </span>
                                     </span>
                                 </div>
 
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" autocomplete="current-password" required autofocus aria-describedby="inputGroupPrependPassword" minlength="8">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" minlength="8" autocomplete="current-password"  autofocus required>
 
                                 <div class="input-group-prepend cur-point" onclick="togglePassword(document.getElementById('password-visibility'), document.getElementById('password'))">
                                     <span class="input-group-text" id="inputGroupPrependEmail">
@@ -64,17 +64,5 @@
 </div>
 @endsection
 @section('internal-js')
-    <script type='text/javascript'>
-        function togglePassword(thisObj, inputObj) {
-            if (inputObj.value !== '') {
-                if (inputObj.type === 'password') {
-                    inputObj.type = 'text';
-                    thisObj.innerText = 'visibility';
-                } else {
-                    inputObj.type = 'password';
-                    thisObj.innerText = 'visibility_off';
-                }
-            }
-        }
-    </script>
+    <script src="{{ asset('assets/js/form-validation.js') }}" type='text/javascript'></script>
 @endsection
